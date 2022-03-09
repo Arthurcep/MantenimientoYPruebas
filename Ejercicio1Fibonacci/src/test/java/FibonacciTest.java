@@ -1,3 +1,4 @@
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -7,17 +8,24 @@ public class FibonacciTest
 {
 
     /**
-     * Fibonacci:
-     *
-     *
+     * Los test se encargan de probar la mayoría de casos posibles
+     * Los diferentes valores con los que se pueden llamar al método 'compute' son:
+     *  - 0 y 1 (Casos base)
+     *  - >= 2
+     *  - < 0
      */
 
+    Fibonacci fibonacci;
+
+    @BeforeEach
+    public void inicia()
+    {
+        fibonacci = new Fibonacci();
+    }
 
     @Test
     public void fibonacciDeCeroEsCero()
     {
-        Fibonacci fibonacci = new Fibonacci();
-
         int expectedValue = 0;
         int obtainedValue = fibonacci.compute(0);
 
@@ -27,8 +35,6 @@ public class FibonacciTest
     @Test
     public void fibonacciDeUnoEsUno()
     {
-        Fibonacci fibonacci = new Fibonacci();
-
         int expectedValue = 1;
         int obtainedValue = fibonacci.compute(1);
 
@@ -38,8 +44,6 @@ public class FibonacciTest
     @Test
     public void fibonacciDeDosEsUno()
     {
-        Fibonacci fibonacci = new Fibonacci();
-
         int expectedValue = 1;
         int obtainedValue = fibonacci.compute(2);
 
@@ -49,8 +53,6 @@ public class FibonacciTest
     @Test
     public void fibonacciDeDiezEsCincuentaYCinco()
     {
-        Fibonacci fibonacci = new Fibonacci();
-
         int expectedValue = 55;
         int obtainedValue = fibonacci.compute(10);
 
@@ -60,8 +62,6 @@ public class FibonacciTest
     @Test
     public void fibonacciDeNegativoProduceExcepcion()
     {
-        Fibonacci fibonacci = new Fibonacci();
-
         assertThrows(RuntimeException.class, () -> fibonacci.compute(-2));
     }
 }
