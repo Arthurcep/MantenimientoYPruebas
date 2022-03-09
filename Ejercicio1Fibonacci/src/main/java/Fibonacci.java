@@ -1,8 +1,17 @@
 public class Fibonacci {
-    public int compute(int value)
+
+    /**
+     * Método que devuelve el número de fibonacci correspondiente a la posición pasada como parámetro
+     *
+     * @param posicion posicion del numero de fibonacci
+     * @return número de fibonacci en la posición obtenida como parámetro
+     */
+
+
+    public int compute(int posicion)
     {
-        if (value < 0) throw new RuntimeException("ERROR: La posicion debe ser positiva. Valor obtenido: " + value);
-        if (value < 2) return value;
-        return compute(value - 1) + compute(value - 2);
+        if (posicion < 0) throw new RuntimeException("ERROR: La posicion debe ser positiva. Valor obtenido: " + posicion);
+        if (posicion < 2) return posicion;
+        return compute(posicion - 1) + compute(posicion - 2);
     }
 }
